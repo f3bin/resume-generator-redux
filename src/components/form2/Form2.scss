@@ -1,0 +1,40 @@
+.form2-container {
+     width: 100%;
+     height: 700px;
+     display: flex;
+     flex-direction: column;
+   
+     .form2-aboutYou {
+       width: 80%;
+       display: flex;
+       justify-content: space-around;
+   
+       .form2-aboutYou-left {
+         display: flex;
+         flex-direction: column;
+       }
+   
+       .form2-aboutYou-right {
+         position: relative;
+   
+         .icon-fileUpload {
+           display: inline-block;
+           width: 100px;
+           height: 100px;
+           background-image: url(https://cdn-icons-png.flaticon.com/512/4018/4018596.png);
+           background-size: cover;
+           background-position: center;
+           cursor: pointer;
+   
+           input[type="file"] {
+             position: absolute;
+             width: 100%;
+             height: 100%;
+             opacity: 0;
+             cursor: pointer;
+           }
+         }
+       }
+     }
+   }
+    
