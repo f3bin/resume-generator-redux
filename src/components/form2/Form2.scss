@@ -7,11 +7,17 @@
      .form2-aboutYou {
        width: 80%;
        display: flex;
-       justify-content: space-around;
+       gap: 90px  ;
+       justify-content: center;
    
        .form2-aboutYou-left {
          display: flex;
          flex-direction: column;
+
+         input{
+          width: 330px;
+          height: 30px;
+         }
        }
    
        .form2-aboutYou-right {
@@ -26,13 +32,6 @@
            background-position: center;
            cursor: pointer;
    
-           input[type="file"] {
-             position: absolute;
-             width: 100%;
-             height: 100%;
-             opacity: 0;
-             cursor: pointer;
-           }
          }
        }
      }
