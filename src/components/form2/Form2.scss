@@ -1,39 +1,67 @@
-.form2-container {
-     width: 100%;
-     height: 700px;
-     display: flex;
-     flex-direction: column;
-   
-     .form2-aboutYou {
-       width: 80%;
-       display: flex;
-       gap: 90px  ;
-       justify-content: center;
-   
-       .form2-aboutYou-left {
-         display: flex;
-         flex-direction: column;
+input {
+  width: 330px;
+  height: 30px;
+}
 
-         input{
-          width: 330px;
-          height: 30px;
-         }
-       }
-   
-       .form2-aboutYou-right {
-         position: relative;
-   
-         .icon-fileUpload {
-           display: inline-block;
-           width: 100px;
-           height: 100px;
-           background-image: url(https://cdn-icons-png.flaticon.com/512/4018/4018596.png);
-           background-size: cover;
-           background-position: center;
-           cursor: pointer;
-   
-         }
-       }
-     }
-   }
-    
+
+
+
+.form2-container {
+  width: 100%;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .form2-aboutYou {
+    margin-bottom: 2px;
+    width: 80%;
+    display: flex;
+    gap: 90px;
+    justify-content: center;
+
+    .form2-aboutYou-left {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+
+    }
+
+    .form2-aboutYou-right {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      .icon-fileUpload {
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 3px 2px;
+        cursor: pointer;
+
+      }
+    }
+  }
+
+  .otherDetails {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 90px;
+    margin-bottom: 2px;
+
+    .otherDetails-left {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .otherDetails-right {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+
+}
