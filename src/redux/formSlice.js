@@ -2,13 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
      name: '',
-     age: 0,
+     age: '',
      city: '',
-     number: 0,
+     number: '',
      email: '',
      educationDetails: [{ institute: "", course: "" }],
-     experiences: [{jobTitle:"",employer:"",duration:''}],
-     skills: [{skill:""}],
+     experiences: [{ jobTitle: "", employer: "", duration: '' }],
+     skills: [{ skill: "" }],
 }
 
 const formSlice = createSlice({
@@ -24,7 +24,7 @@ const formSlice = createSlice({
           updateCity: (state, action) => {
                state.city = action.payload
           },
-          updateNumber:(state,action) =>{
+          updateNumber: (state, action) => {
                state.number = action.payload
           },
           updateEmail: (state, action) => {
@@ -34,20 +34,28 @@ const formSlice = createSlice({
                state.educationDetails.push({ institute: '', course: '' });
           },
           updateEducationDetail: (state, action) => {
-               const { index, institute, course } = action.payload;
-               state.educationDetails[index][institute] = course;
+               const { index, name, value } = action.payload;
+               state.educationDetails[index][name] = value;
           },
 
           addExperienceDetail: (state, action) => {
-               state.experiences.push({jobTitle:'',employer:'',duration:''})
+               state.experiences.push({ jobTitle: '', employer: '', duration: '' })
           },
-          
+          updateExperienceDetail: (state, action) => {
+               const { index, name, value } = action.payload;
+               state.experiences[index][name] = value;
+          },
+
           addSkills: (state, action) => {
-               state.skills.push({skill:''})
+               state.skills.push({ skill: '' })
           },
+          updateSkills:(state,action) =>{
+               const {index,name,value} =action.payload;
+               state.skills[index][name]=value;
+          }
      }
 })
 
 export default formSlice.reducer;
-export const { updateName, updateAge,updateNumber, updateCity, updateEmail, 
-     addEducationDetail,updateEducationDetail, addExperienceDetail, addSkills } = formSlice.actions;
+export const { updateName, updateAge, updateNumber, updateCity, updateEmail,
+     addEducationDetail, updateEducationDetail, updateExperienceDetail,updateSkills, addExperienceDetail, addSkills } = formSlice.actions;

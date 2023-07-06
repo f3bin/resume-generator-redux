@@ -8,7 +8,7 @@
      .stepper-button-container {
           display: flex;
           flex-direction: row;
-          .stepper-button {
+          .stepper-button-previous,.stepper-button-next {
                width: 100px;
                height: 30px;
                background-color: rgb(40, 40, 212);
@@ -17,9 +17,7 @@
                color: white;
                cursor: pointer;
                margin: 10px 5px;
-               
-
-
+      
                &:disabled {
                     background-color: gray;
                }

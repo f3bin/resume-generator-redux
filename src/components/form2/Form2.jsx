@@ -1,54 +1,57 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { IoIosAddCircleOutline } from "react-icons/io";
-import {
-  addEducationDetail,
-  updateEducationDetail,
-  addExperienceDetail,
-  addSkills,updateAge,updateCity,updateEmail,
-  updateNumber
-} from "../../redux/formSlice";
+import {updateAge, updateCity,updateEmail, updateNumber} from "../../redux/formSlice";
 import "./Form2.scss";
+import useFormHandles from "../../hooks/useFormHandles";
 
 const Form2 = () => {
+  const {
+    DATA,
+    handleAddEducation,
+    handleAddExperience,
+    handleAddSkill,
+    handleChangeEducation,
+    handleChangeExperience,
+    handleChangeSkills,
+  } = useFormHandles();
   const dispatch = useDispatch();
-  const name = useSelector((state) => state.form.name);
-
-  const DATA = useSelector((state) => state.form);
-
-  const handleAddEducation = () => {
-    dispatch(addEducationDetail());
-  };
-  const handleAddExperience = () => {
-    dispatch(addExperienceDetail());
-  };
-  const handleAddSkill = () =>{
-    dispatch(addSkills());
-  }
-
-  const handleChangeEducation = (e, index) => {
-    const { name, value } = e.target;
-    dispatch(updateEducationDetail({ index, name, value }));
-  };
 
   return (
     <div className="form2-container">
-      <h3 >Tell more about you !</h3>
+      <h3>Tell more about you !</h3>
       <div className="form2-aboutYou">
         <div className="form2-aboutYou-left">
           <label>name</label>
-          <input type="text" value={name} />
+          <input type="text" value={DATA.name} />
           <label>age</label>
-          <input type="number" onChange={e => dispatch(updateAge(e.target.value))}/>
+          <input
+            type="number"
+            value={DATA.age}
+            onChange={(e) => dispatch(updateAge(e.target.value))}
+          />
+
           <label>city</label>
-          <input type="text" onChange={e => dispatch(updateCity(e.target.value))}/>
+          <input
+            type="text"
+            value={DATA.city}
+            onChange={(e) => dispatch(updateCity(e.target.value))}
+          />
         </div>
         <div className="form2-aboutYou-right">
           <input className="icon-fileUpload" type="file" name="profile" />
           <label>phone</label>
-          <input type="number" nChange={e => dispatch(updateNumber(e.target.value))}/>
+          <input
+            type="number"
+            value={DATA.number}
+            onChange={(e) => dispatch(updateNumber(e.target.value))}
+          />
           <label>email</label>
-          <input type="email" onChange={e => dispatch(updateEmail(e.target.value))}/>
+          <input
+            type="email"
+            value={DATA.email}
+            onChange={(e) => dispatch(updateEmail(e.target.value))}
+          />
         </div>
       </div>
 
@@ -86,7 +89,12 @@ const Form2 = () => {
           {DATA.skills.map((skillItem, index) => (
             <div key={index} className="otherDetails-skills">
               <label>Add your skill</label>
-              <input type="text" name="skill" value={skillItem.skill} />
+              <input
+                type="text"
+                name="skill"
+                value={skillItem.skill}
+                onChange={(e) => handleChangeSkills(e, index)}
+              />
             </div>
           ))}
           <IoIosAddCircleOutline
@@ -101,14 +109,25 @@ const Form2 = () => {
           {DATA.experiences.map((experience, index) => (
             <div key={index} className="otherDetails-experience">
               <label>Job title</label>
-              <input type="text" name="jobTitle" value={experience.jobTitle} />
+              <input
+                type="text"
+                name="jobTitle"
+                value={experience.jobTitle}
+                onChange={(e) => handleChangeExperience(e, index)}
+              />
               <label>Employer</label>
-              <input type="text" name="employer" value={experience.employer} />
+              <input
+                type="text"
+                name="employer"
+                value={experience.employer}
+                onChange={(e) => handleChangeExperience(e, index)}
+              />
               <label>Duration(years)</label>
               <input
                 type="number"
                 name="duration"
                 value={experience.duration}
+                onChange={(e) => handleChangeExperience(e, index)}
               />
             </div>
           ))}
