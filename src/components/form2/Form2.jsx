@@ -6,11 +6,11 @@ import {
   updateCity,
   updateEmail,
   updateImage,
-  updateNumber
+  updateName,
+  updateNumber,
 } from "../../redux/formSlice";
 import "./Form2.scss";
 import useFormHandles from "../../hooks/useFormHandles";
-
 
 const Form2 = () => {
   const {
@@ -24,17 +24,11 @@ const Form2 = () => {
   } = useFormHandles();
   const dispatch = useDispatch();
 
-  const handleFileChange = (e) =>{
+  const handleFileChange = (e) => {
     const file = e.target.files[0];
     dispatch(updateImage(file));
-  }
-  // const handleSubmitForm2 = () => {
-  //   if (!DATA.name || !DATA.age || !DATA.city || !DATA.number || !DATA.email) {
-  //    dispatch(updateStepper(false)) }
-  //    else{
-  //     dispatch(updateStepper(true))
-  //    } 
-  // };
+  };
+ };
 
   return (
     <form className="form2-container">
@@ -42,7 +36,11 @@ const Form2 = () => {
       <div className="form2-aboutYou">
         <div className="form2-aboutYou-part1">
           <label>name</label>
-          <input type="text" value={DATA.name} />
+          <input
+            type="text"
+            value={DATA.name}
+            onChange={(e) => dispatch(updateName(e.target.value))}
+          />
           <label>age</label>
           <input
             type="number"
@@ -67,14 +65,18 @@ const Form2 = () => {
         </div>
         <div className="form2-aboutYou-part3">
           <label>Upload image here</label>
-          <input className="icon-fileUpload" type="file" name="profile"  onChange={handleFileChange}/>
+          <input
+            className="icon-fileUpload"
+            type="file"
+            name="profile"
+            onChange={handleFileChange}
+          />
           <label>email</label>
           <input
-          type="email"
+            type="email"
             value={DATA.email}
             required
             onChange={(e) => dispatch(updateEmail(e.target.value))}
-       
           />
         </div>
       </div>
@@ -165,7 +167,6 @@ const Form2 = () => {
           />
         </div>
       </div>
-      
     </form>
   );
 };
