@@ -28,7 +28,7 @@ const Form2 = () => {
     const file = e.target.files[0];
     dispatch(updateImage(file));
   };
- };
+
 
   return (
     <form className="form2-container">
