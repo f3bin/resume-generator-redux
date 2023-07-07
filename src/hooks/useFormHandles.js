@@ -16,9 +16,11 @@ const useFormHandles = () => {
      const handleAddEducation = () => {
           dispatch(addEducationDetail());
         };
+
         const handleAddExperience = () => {
           dispatch(addExperienceDetail());
         };
+
         const handleAddSkill = () => {
           dispatch(addSkills());
         };
@@ -27,16 +29,17 @@ const useFormHandles = () => {
           const { name, value } = e.target;
           dispatch(updateEducationDetail({ index, name, value }));
         };
-      
+
         const handleChangeExperience = (e, index) => {
           const {name,value} =e.target;
           dispatch(updateExperienceDetail({index, name,value}));
-        };
-      
+        };     
+
         const handleChangeSkills = (e, index) => {
           const {name,value} =e.target;
           dispatch(updateSkills({index,name,value}))
         };
+
 
      return {DATA,handleAddEducation,handleAddExperience,handleAddSkill ,
      handleChangeEducation,handleChangeExperience,handleChangeSkills}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch} from "react-redux";
 import "./Form1.scss";
 import { updateName } from "../../redux/formSlice";
 import { MdOutlineDownloadDone } from "react-icons/md";
@@ -8,6 +8,9 @@ import { MdOutlineDownloadDone } from "react-icons/md";
 const Form1 = () => {
   const [name, setName] = useState("");
   const dispatch = useDispatch();
+  const handleSubmitForm1 = () => {
+    name && dispatch(updateName(name)) 
+  };
 
   return (
     <div className="form1-container">
@@ -17,11 +20,12 @@ const Form1 = () => {
           onChange={(e) => setName(e.target.value)}
           type="text"
           name="name"
+          value={name}
           required
         />
       </div>
       <MdOutlineDownloadDone
-        onClick={() => dispatch(updateName(name))}
+        onClick={handleSubmitForm1}
         size={35}
         color="blue"
         style={{ cursor: "pointer" }}

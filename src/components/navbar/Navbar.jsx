@@ -4,7 +4,7 @@ import "./Navbar.scss";
 const Navbar = () => {
   return (
     <div className="navbar-container">
-      <h3>Resume Generator</h3>
+      <h3>Resume Maker</h3>
     </div>
   );
 };

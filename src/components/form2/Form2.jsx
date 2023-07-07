@@ -1,9 +1,16 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { IoIosAddCircleOutline } from "react-icons/io";
-import {updateAge, updateCity,updateEmail, updateNumber} from "../../redux/formSlice";
+import {
+  updateAge,
+  updateCity,
+  updateEmail,
+  updateImage,
+  updateNumber
+} from "../../redux/formSlice";
 import "./Form2.scss";
 import useFormHandles from "../../hooks/useFormHandles";
+
 
 const Form2 = () => {
   const {
@@ -17,20 +24,40 @@ const Form2 = () => {
   } = useFormHandles();
   const dispatch = useDispatch();
 
+  const handleFileChange = (e) =>{
+    const file = e.target.files[0];
+    dispatch(updateImage(file));
+  }
+  // const handleSubmitForm2 = () => {
+  //   if (!DATA.name || !DATA.age || !DATA.city || !DATA.number || !DATA.email) {
+  //    dispatch(updateStepper(false)) }
+  //    else{
+  //     dispatch(updateStepper(true))
+  //    } 
+  // };
+
   return (
     <div className="form2-container">
       <h3>Tell more about you !</h3>
       <div className="form2-aboutYou">
-        <div className="form2-aboutYou-left">
+        <div className="form2-aboutYou-part1">
           <label>name</label>
           <input type="text" value={DATA.name} />
           <label>age</label>
           <input
             type="number"
+            required
             value={DATA.age}
             onChange={(e) => dispatch(updateAge(e.target.value))}
           />
-
+        </div>
+        <div className="form2-aboutYou-part2">
+          <label>phone</label>
+          <input
+            type="number"
+            value={DATA.number}
+            onChange={(e) => dispatch(updateNumber(e.target.value))}
+          />
           <label>city</label>
           <input
             type="text"
@@ -38,17 +65,12 @@ const Form2 = () => {
             onChange={(e) => dispatch(updateCity(e.target.value))}
           />
         </div>
-        <div className="form2-aboutYou-right">
-          <input className="icon-fileUpload" type="file" name="profile" />
-          <label>phone</label>
-          <input
-            type="number"
-            value={DATA.number}
-            onChange={(e) => dispatch(updateNumber(e.target.value))}
-          />
+        <div className="form2-aboutYou-part3">
+          <label>Upload image here</label>
+          <input className="icon-fileUpload" type="file" name="profile"  onChange={handleFileChange}/>
           <label>email</label>
           <input
-            type="email"
+          type="email"
             value={DATA.email}
             onChange={(e) => dispatch(updateEmail(e.target.value))}
           />
@@ -61,17 +83,18 @@ const Form2 = () => {
           <h3>Educational Details</h3>
           {DATA.educationDetails.map((education, index) => (
             <div key={index} className="otherDetails-education">
-              <label>Institute</label>
               <input
                 type="text"
                 name="institute"
+                placeholder="institute"
                 value={education.institute}
                 onChange={(e) => handleChangeEducation(e, index)}
               />
-              <label>Course</label>
+
               <input
                 type="text"
                 name="course"
+                placeholder="course"
                 value={education.course}
                 onChange={(e) => handleChangeEducation(e, index)}
               />
@@ -88,9 +111,9 @@ const Form2 = () => {
           <h3>Skills</h3>
           {DATA.skills.map((skillItem, index) => (
             <div key={index} className="otherDetails-skills">
-              <label>Add your skill</label>
               <input
                 type="text"
+                placeholder="skill"
                 name="skill"
                 value={skillItem.skill}
                 onChange={(e) => handleChangeSkills(e, index)}
@@ -108,24 +131,26 @@ const Form2 = () => {
           <h3>Experiences</h3>
           {DATA.experiences.map((experience, index) => (
             <div key={index} className="otherDetails-experience">
-              <label>Job title</label>
               <input
                 type="text"
                 name="jobTitle"
+                placeholder="job title"
                 value={experience.jobTitle}
                 onChange={(e) => handleChangeExperience(e, index)}
               />
-              <label>Employer</label>
+
               <input
                 type="text"
                 name="employer"
+                placeholder="employer"
                 value={experience.employer}
                 onChange={(e) => handleChangeExperience(e, index)}
               />
-              <label>Duration(years)</label>
+
               <input
                 type="number"
                 name="duration"
+                placeholder="duration"
                 value={experience.duration}
                 onChange={(e) => handleChangeExperience(e, index)}
               />
@@ -138,6 +163,7 @@ const Form2 = () => {
           />
         </div>
       </div>
+      
     </div>
   );
 };

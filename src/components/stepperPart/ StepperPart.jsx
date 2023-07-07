@@ -5,16 +5,21 @@ import Form2 from "../form2/Form2";
 import Form1 from "../form1/Form1";
 import FinalResume from "../finalResume/FinalResume";
 
+
+
 const StepperPart = () => {
-  const [currentPage, setCurrentPage] = useState(0);
+ const [currentPage, setCurrentPage] = useState(0);
 
   const handleNext = () => {
     setCurrentPage((prevPage) => prevPage + 1);
+  
   };
 
   const handlePrevious = () => {
     setCurrentPage((prevPage) => prevPage - 1);
   };
+
+  
 
   return (
     <div className="stepper-container">
@@ -32,10 +37,10 @@ const StepperPart = () => {
       {currentPage === 2 && <FinalResume />}
       
     <div className="stepper-button-container">
-      <button className="stepper-button-previous" disabled={currentPage === 0} onClick={handlePrevious}>
+      <button className="stepper-button-previous" disabled={currentPage === 0 } onClick={handlePrevious}>
         Previous
       </button>
-      <button className="stepper-button-next" disabled={currentPage === 2} onClick={handleNext}>
+      <button className="stepper-button-next" disabled={currentPage === 2 } onClick={handleNext}>
         Next
       </button>
       </div>

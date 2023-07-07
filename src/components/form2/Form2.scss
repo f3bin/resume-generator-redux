@@ -1,43 +1,58 @@
 input {
-  width: 330px;
-  height: 25px;
+  width: 270px;
+  height: 26px;
+  font-size: 17px;
+  border: none;
 }
 
-
 .form2-container {
-  width: 100%;
+  width: 55%;
   height: 800px;
   display: flex;
-  gap: 30px;
+  gap: 20px;
   align-items: center;
   flex-direction: column;
   margin-top: 3px;
-
+  background-color: rgba(123, 142, 228, 0.2);
+  border-color: rgba(201, 236, 236,0.3);
+        border-style: outset;
+        padding:5px;
 
   .form2-aboutYou {
     margin-bottom: 2px;
     width: 80%;
     display: flex;
-    gap: 90px;
+    gap: 70px;
     justify-content: center;
 
-    .form2-aboutYou-left {
+
+    .form2-aboutYou-part1 {
       display: flex;
       flex-direction: column;
       gap: 5px;
+     
     }
 
-    .form2-aboutYou-right {
+    .form2-aboutYou-part2 {
       display: flex;
       flex-direction: column;
       gap: 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      
+    }
 
+    .form2-aboutYou-part3 {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      
       .icon-fileUpload {
         border: 1px solid #ccc;
         display: inline-block;
         padding: 3px 2px;
         cursor: pointer;
-
       }
     }
   }
@@ -47,8 +62,9 @@ input {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 100px;
-    margin: 2px 0 0 0 ;
+    gap: 70px;
+    margin: 2px 0 0 0;
+
 
     .otherDetails-education-part {
       display: flex;
@@ -56,12 +72,16 @@ input {
       align-items: center;
       gap: 2px;
 
+
       .otherDetails-education {
         display: flex;
         flex-direction: column;
         gap: 5px;
-        margin-top: 3px;
-        border-bottom: 1px solid rgb(3, 106, 240);
+        margin-bottom: 10px;
+
+        border-color: rgba(201, 236, 236, 0.3);
+        border-style: outset;
+        padding: 5px
       }
     }
 
@@ -75,10 +95,13 @@ input {
         display: flex;
         flex-direction: column;
         gap: 5px;
-        margin-top: 3px;
-        border-bottom: 1px solid rgb(3, 106, 240);
+        margin-bottom: 10px;
+        border-color: rgba(201, 236, 236, 0.3);
+        border-style: outset;
+        padding: 5px
       }
     }
+
     .otherDetails-experience-part {
       display: flex;
       flex-direction: column;
@@ -89,8 +112,10 @@ input {
         display: flex;
         flex-direction: column;
         gap: 5px;
-        margin-top: 3px;
-        border-bottom: 1px solid rgb(3, 106, 240);
+        margin-bottom: 10px;
+        border-color: rgba(201, 236, 236, 0.3);
+        border-style: outset;
+        padding: 5px
       }
     }
 
