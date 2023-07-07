@@ -37,7 +37,7 @@ const Form2 = () => {
   // };
 
   return (
-    <div className="form2-container">
+    <form className="form2-container">
       <h3>Tell more about you !</h3>
       <div className="form2-aboutYou">
         <div className="form2-aboutYou-part1">
@@ -72,7 +72,9 @@ const Form2 = () => {
           <input
           type="email"
             value={DATA.email}
+            required
             onChange={(e) => dispatch(updateEmail(e.target.value))}
+       
           />
         </div>
       </div>
@@ -164,7 +166,7 @@ const Form2 = () => {
         </div>
       </div>
       
-    </div>
+    </form>
   );
 };
 
